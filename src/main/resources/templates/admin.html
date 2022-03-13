@@ -190,7 +190,7 @@
                                                             </div>
                                                             <form action="#"
                                                                   th:action="@{/admin/{id}(id=${usr.id})}"
-                                                                  th:method="POST">
+                                                                  th:method="DELETE">
                                                                 <div class="modal-body line-height-07 col-sm-6 offset-3">
                                                                     <div class="form-group">
                                                                         <label for="idDelete"><strong>ID</strong></label>
@@ -236,12 +236,11 @@
                                                                         <label for="roleDelete"><strong>Role</strong></label>
                                                                         <select disabled multiple class="custom-select"
                                                                                 id="roleDelete"
-                                                                                th:size="${allRoles.size()}"
+                                                                                th:size="${usr.getRoles().size()}"
                                                                                 th:name="roles">
-                                                                            <th:block th:each="role : ${allRoles}">
+                                                                            <th:block th:each="role : ${usr.getRoles()}">
                                                                                 <option th:value="${role.id}"
-                                                                                        th:text="${role.name}"
-                                                                                        th:selected="${usr.getRoles().contains(role)}"></option>
+                                                                                        th:text="${role.name}"></option>
                                                                             </th:block>
                                                                         </select>
                                                                     </div>
